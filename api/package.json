@@ -1,0 +1,53 @@
+{
+  "name": "koa-starter",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "dev:build": "echo -n 'Transpiling changes...' && esbuild ./src --log-level=warning --bundle --platform=node --format=esm --outfile=dist/index.js && echo ✅",
+    "dev:node": "node dist/index.js",
+    "lint:types": "tsc --preserveWatchOutput",
+    "dev": "nodemon",
+    "start": "npm run --silent dev",
+    "test": "",
+    "migrate:dev": "npx prisma migrate dev --name init",
+    "seed:dev": "npx prisma db seed",
+    "configure:dev": "npm run migrate:dev -- npm run seed:dev"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "axios": "^1.6.7",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "moment": "^2.30.1"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.9.1",
+    "@types/node": "^20.11.17",
+    "esbuild": "^0.20.0",
+    "jest-mock-extended": "^3.0.5",
+    "nodemon": "^3.0.3",
+    "prisma": "^5.9.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "nodemonConfig": {
+    "exec": "npm run --silent dev:build && npm run --silent dev:node",
+    "ext": "env,ts,js,json",
+    "ignore": [
+      "dist/**/*",
+      "src/**/*.test.ts"
+    ],
+    "legacyWatch": true,
+    "quiet": true,
+    "signal": "SIGTERM",
+    "watch": [
+      ".env",
+      "src"
+    ]
+  }
+}

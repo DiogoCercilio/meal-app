@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int        @id @default(autoincrement())
+  email    String     @unique
+  name     String?
+  UserMeal UserMeal[]
+
+  @@map("user")
+}
+
+model UserMeal {
+  id          Int      @id @default(autoincrement())
+  quantity    Int
+  unitMeasure String
+  details     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  meal        Meal     @relation(fields: [mealId], references: [id], onDelete: Cascade)
+  mealId      Int
+
+  @@map("user_meal")
+}
+
+model Meal {
+  id          Int        @id @default(autoincrement())
+  name        String     @unique
+  description String     @unique
+  calories    Int
+  image       String
+  UserMeal    UserMeal[]
+  categoryId  Int
+
+  @@map("meal")
+}
+
+model MealCategory {
+  id     Int    @id @default(autoincrement())
+  name   String @unique
+  banner String @unique
+
+  @@map("meal_category")
+}

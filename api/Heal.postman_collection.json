@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "97e11ef7-9091-4b95-887f-6b8370b5a09b",
+		"name": "Heal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32882245"
+	},
+	"item": [
+		{
+			"name": "Meal",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/meal/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"meal",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/meal",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"meal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Quesadilla\",\n    \"description\": \"Amazing quesadillas for Dinner\",\n    \"category\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/meal",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"meal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Meal",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/user-meal/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"user-meal",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/user-meal/:id?userId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"user-meal",
+								":id"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/user-meal?userId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"user-meal"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 1,\n    \"unitMeasure\": \"kilo\",\n    \"mealId\": 1,\n    \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/user-meal",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"user-meal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Diogo\",\n    \"email\": \"diogocercilio@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/user",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/auth",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meal Category",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Japanese\",\n    \"banner\": \"https://www.tastingtable.com/img/gallery/20-japanese-dishes-you-need-to-try-at-least-once/l-intro-1664219638.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/meal/category",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"meal",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/meal/category",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"meal",
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
