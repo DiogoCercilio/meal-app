@@ -1,9 +1,11 @@
 # Meal Info Application
 A SPA for measuring user daily meals.
 
-<img width="320" src="./screenshot1.png" />
-<img width="300" src="./screenshot2.png" />
-<img width="300" src="./screenshot3.png" />
+<div style="display: flex">
+    <img width="320" src="./screenshot1.png" />
+    <img width="300" src="./screenshot2.png" />
+    <img width="300" src="./screenshot3.png" />
+</div>
 
 ## Stack 
 `Node.js`  `Prisma.js`  `Express.js`  `React.js`  `Tailwind`  `SQlite3`  `Cypress`
