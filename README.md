@@ -2,9 +2,9 @@
 A SPA for measuring user daily meals.
 
 <div style="display: flex">
-    <img width="320" src="./screenshot1.png" />
-    <img width="300" src="./screenshot2.png" />
-    <img width="300" src="./screenshot3.png" />
+    <img width="275" src="./screenshot1.png" />
+    <img width="275" src="./screenshot2.png" />
+    <img width="270" src="./screenshot3.png" />
 </div>
 
 ## Stack 
@@ -40,6 +40,8 @@ npm test
 ```
 
 #### Checking
+
+Open [http://localhost:9000](http://localhost:9000)
 
 You can see all available `endpoints` using [postman](https://www.postman.com/). 
 You'll need to import [this](/api/Heal.postman_collection.json) collection.
