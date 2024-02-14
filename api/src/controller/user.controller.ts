@@ -13,5 +13,5 @@ const userService = new UserService()
 router.post('/', async (req: Request, res: Response) => {
     res.json(await userService.create(req.body));
 });
-  
+
 export default router;  

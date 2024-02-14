@@ -8,7 +8,7 @@
     "lint:types": "tsc --preserveWatchOutput",
     "dev": "nodemon",
     "start": "npm run --silent dev",
-    "test": "",
+    "test": "jest",
     "migrate:dev": "npx prisma migrate dev --name init",
     "seed:dev": "npx prisma db seed",
     "configure:dev": "npm run migrate:dev -- npm run seed:dev"
@@ -26,12 +26,18 @@
     "moment": "^2.30.1"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@prisma/client": "^5.9.1",
+    "@types/jest": "^29.5.12",
+    "@types/mocha": "^10.0.6",
     "@types/node": "^20.11.17",
     "esbuild": "^0.20.0",
+    "jest": "^29.7.0",
     "jest-mock-extended": "^3.0.5",
+    "mocha": "^10.3.0",
     "nodemon": "^3.0.3",
     "prisma": "^5.9.1",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
