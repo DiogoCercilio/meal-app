@@ -1,6 +1,6 @@
-import { PrismaClient, Prisma } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import prisma from '../../client'
+import { MealCreateInput } from '../model/meal'
+import { MealCategoryCreateInput } from '../model/meal-category'
 
 export default class MealService {
     public async find(id: number) {
@@ -19,11 +19,11 @@ export default class MealService {
         return await prisma.mealCategory.findMany()
     }
 
-    public async createCategory(mealCategory: Prisma.MealCategoryCreateInput) {
+    public async createCategory(mealCategory: MealCategoryCreateInput) {
         return await prisma.mealCategory.create({ data: mealCategory })
     }
 
-    public async create(meal: Prisma.MealCreateInput) {
+    public async create(meal: MealCreateInput) {
         return await prisma.meal.create({ data: meal })
     }
 }

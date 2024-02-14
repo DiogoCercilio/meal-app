@@ -35,13 +35,14 @@ model UserMeal {
 }
 
 model Meal {
-  id          Int        @id @default(autoincrement())
-  name        String     @unique
-  description String     @unique
-  calories    Int
-  image       String
-  UserMeal    UserMeal[]
-  categoryId  Int
+  id             Int          @id @default(autoincrement())
+  name           String       @unique
+  description    String       @unique
+  calories       Int
+  image          String
+  UserMeal       UserMeal[]
+  MealCategory   MealCategory @relation(fields: [categoryId], references: [id])
+  categoryId     Int
 
   @@map("meal")
 }
@@ -50,6 +51,7 @@ model MealCategory {
   id     Int    @id @default(autoincrement())
   name   String @unique
   banner String @unique
+  Meal   Meal[]
 
   @@map("meal_category")
 }

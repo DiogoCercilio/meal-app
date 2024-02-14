@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient } from "@prisma/client";
+import moment from 'moment';
 const prisma = new PrismaClient();
 
 async function main() {
@@ -6,6 +7,27 @@ async function main() {
     name: "John Doe",
     email: "john@doe.com",
   };
+  
+  const tenMinutesBack = moment().subtract(10, 'minutes').format()
+  const userMeals: Prisma.UserMealUncheckedCreateInput[] = [{
+    quantity: 1,
+    unitMeasure: "Unit",
+    details: "I ate this with my girlfriend",
+    createdAt: tenMinutesBack,
+    updatedAt: tenMinutesBack,
+    userId: 1,
+    mealId: 2
+  },
+  {
+    quantity: 2,
+    unitMeasure: "Unit",
+    details: "It was very tasty!",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    userId: 1,
+    mealId: 3
+  }
+];
 
   const categories: Prisma.MealCategoryCreateInput[] = [
     {
@@ -74,12 +96,16 @@ async function main() {
   ];
 
   await prisma.user.create({ data: user });
-
+  
   for (let category of categories) {
     await prisma.mealCategory.create({ data: category });
   }
   for (let meal of meals) {
     await prisma.meal.create({ data: meal });
+  }
+  
+  for (let userMeal of userMeals) {
+    await prisma.userMeal.create({ data: userMeal });
   }
 }
 

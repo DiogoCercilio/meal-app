@@ -11,7 +11,8 @@
     "test": "jest",
     "migrate:dev": "npx prisma migrate dev --name init",
     "seed:dev": "npx prisma db seed",
-    "configure:dev": "npm run migrate:dev -- npm run seed:dev"
+    "configure:dev": "npm run migrate:dev && npm run seed:dev",
+    "prisma:studio": "npx prisma studio"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"

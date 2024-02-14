@@ -1,6 +1,5 @@
-import { Prisma, PrismaClient } from "@prisma/client"
-
-const prisma = new PrismaClient()
+import prisma from '../../client'
+import { UserMealCreateInput } from '../model/user-meal'
 
 export default class UserMealService {    
     public find(id: number) {
@@ -31,11 +30,11 @@ export default class UserMealService {
         })
     }
     
-    public create(body: Prisma.UserMealCreateInput) {
+    public create(body: UserMealCreateInput) {
         return prisma.userMeal.create({ data: body })
     }
 
-    public update(id: number, body: Prisma.UserMealCreateInput) {
+    public update(id: number, body: UserMealCreateInput) {
         return prisma.userMeal.update({ where: { id }, data: body })
     }
 

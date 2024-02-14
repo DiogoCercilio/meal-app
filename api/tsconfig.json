@@ -2,7 +2,7 @@
   "compilerOptions": {
     /* Base Options: */
     "esModuleInterop": true,
-    "types": ["mocha","jest"],
+    "types": ["mocha","jest", "node"],
     "typeRoots": ["./src/types", "./node_modules/@types"],    
     "skipLibCheck": true,
     "sourceMap": true,
